@@ -1,4 +1,4 @@
-package main
+package helpers
 
 import (
 	"encoding/json"
@@ -8,14 +8,14 @@ import (
 	"syscall"
 )
 
-func errCheck(msg string, err error) {
+func ErrCheck(msg string, err error) {
 	if err != nil {
 		fmt.Printf("%s: %+v", msg, err)
 		panic(err)
 	}
 }
 
-func prettyPrint(data interface{}) {
+func PrettyPrint(data interface{}) {
 	var p []byte
 	p, err := json.MarshalIndent(data, "", "\t")
 	if err != nil {
@@ -25,7 +25,7 @@ func prettyPrint(data interface{}) {
 	fmt.Printf("%s \n", p)
 }
 
-func run() {
+func Run() {
 	fmt.Println("Bot is now running.  Press CTRL-C to exit.")
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)

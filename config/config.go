@@ -1,8 +1,9 @@
-package main
+package config
 
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/john-d-pelingo/godbot/helpers"
 	"io/ioutil"
 )
 
@@ -12,14 +13,14 @@ type config struct {
 	Prefix string `json:"prefix"`
 }
 
-func initConfig(configFile string) *config {
+func InitConfig(configFile string) *config {
 	file, err := ioutil.ReadFile(configFile)
-	errCheck(fmt.Sprintf("Unable to open file: %s.", configFile), err)
+	helpers.ErrCheck(fmt.Sprintf("Unable to open file: %s.", configFile), err)
 
 	config := config{}
 
 	err = json.Unmarshal(file, &config)
-	errCheck(fmt.Sprintf("Unable to JSON parse file: %s.", configFile), err)
+	helpers.ErrCheck(fmt.Sprintf("Unable to JSON parse file: %s.", configFile), err)
 
 	return &config
 }

@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/bwmarrin/discordgo"
+	conf "github.com/john-d-pelingo/godbot/config"
+	"github.com/john-d-pelingo/godbot/helpers"
 )
 
 var (
@@ -11,23 +13,23 @@ var (
 )
 
 func main() {
-	config := initConfig("./config.json")
+	config := conf.InitConfig("./config.json")
 
 	dgo, err := discordgo.New(fmt.Sprintf("Bot %s", config.Token))
-	errCheck("Failed to create discord session.", err)
+	helpers.ErrCheck("Failed to create discord session.", err)
 
 	bot, err := dgo.User("@me")
-	errCheck("Failed to access account.", err)
+	helpers.ErrCheck("Failed to access account.", err)
 
 	botID = bot.ID
 	dgo.AddHandler(handleCmd)
 
 	err = dgo.Open()
-	errCheck("Unable to establish connection.", err)
+	helpers.ErrCheck("Unable to establish connection.", err)
 
 	defer dgo.Close()
 
-	run()
+	helpers.Run()
 }
 
 func handleCmd(discord *discordgo.Session, message *discordgo.MessageCreate) {
@@ -43,5 +45,5 @@ func handleCmd(discord *discordgo.Session, message *discordgo.MessageCreate) {
 		discord.ChannelMessageSend(message.ChannelID, "Testing something...")
 	}
 
-	prettyPrint(&message.Message)
+	helpers.PrettyPrint(&message.Message)
 }
