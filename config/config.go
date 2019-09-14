@@ -3,8 +3,9 @@ package config
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/john-d-pelingo/godbot/helpers"
 	"io/ioutil"
+
+	"github.com/john-d-pelingo/godbot/helpers"
 )
 
 // Config represents the structure of the config file.
