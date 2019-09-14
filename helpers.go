@@ -3,6 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
 func errCheck(msg string, err error) {
@@ -20,4 +23,11 @@ func prettyPrint(data interface{}) {
 		return
 	}
 	fmt.Printf("%s \n", p)
+}
+
+func run() {
+	fmt.Println("Bot is now running.  Press CTRL-C to exit.")
+	sc := make(chan os.Signal, 1)
+	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
+	<-sc
 }

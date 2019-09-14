@@ -15,7 +15,6 @@ func main() {
 
 	dgo, err := discordgo.New(fmt.Sprintf("Bot %s", config.Token))
 	errCheck("Failed to create discord session.", err)
-	defer dgo.Close()
 
 	bot, err := dgo.User("@me")
 	errCheck("Failed to access account.", err)
@@ -26,7 +25,9 @@ func main() {
 	err = dgo.Open()
 	errCheck("Unable to establish connection.", err)
 
-	<-make(chan struct{})
+	defer dgo.Close()
+
+	run()
 }
 
 func handleCmd(discord *discordgo.Session, message *discordgo.MessageCreate) {
