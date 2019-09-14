@@ -11,19 +11,20 @@ var (
 )
 
 func main() {
-	discord, err := discordgo.New("Bot <BOT_TOKEN>")
-	errCheck("failed to create discord session", err)
+	config := initConfig("./config.json")
 
-	bot, err := discord.User("@me")
-	errCheck("failed to access account", err)
+	dgo, err := discordgo.New(fmt.Sprintf("Bot %s", config.Token))
+	errCheck("Failed to create discord session.", err)
+	defer dgo.Close()
+
+	bot, err := dgo.User("@me")
+	errCheck("Failed to access account.", err)
 
 	botID = bot.ID
-	discord.AddHandler(handleCmd)
+	dgo.AddHandler(handleCmd)
 
-	err = discord.Open()
-	errCheck("unable to establish connection", err)
-
-	defer discord.Close()
+	err = dgo.Open()
+	errCheck("Unable to establish connection.", err)
 
 	<-make(chan struct{})
 }
@@ -41,12 +42,5 @@ func handleCmd(discord *discordgo.Session, message *discordgo.MessageCreate) {
 		discord.ChannelMessageSend(message.ChannelID, "Testing something...")
 	}
 
-	fmt.Printf("Message: %+v\n", message.Message)
-}
-
-func errCheck(msg string, err error) {
-	if err != nil {
-		fmt.Printf("%s: %+v", msg, err)
-		panic(err)
-	}
+	prettyPrint(&message.Message)
 }
