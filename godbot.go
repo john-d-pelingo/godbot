@@ -18,7 +18,7 @@ func main() {
 	_, err = dgo.User("@me")
 	helpers.ErrCheck("Failed to access account.", err)
 
-	dgo.AddHandler(handlers.HandleMessage(config.Prefix))
+	go dgo.AddHandler(handlers.HandleMessage(config.Prefix))
 
 	err = dgo.Open()
 	helpers.ErrCheck("Unable to establish connection.", err)
