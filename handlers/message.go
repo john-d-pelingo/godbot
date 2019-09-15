@@ -1,11 +1,11 @@
 package handlers
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/john-d-pelingo/godbot/commands"
-	"github.com/john-d-pelingo/godbot/helpers"
 )
 
 // HandleMessage handles the incoming message and lets the handlers manage it accordingly.
@@ -29,6 +29,17 @@ func HandleMessage(prefix string) func(discord *discordgo.Session, message *disc
 			})
 		}
 
-		helpers.PrettyPrint(&message.Message)
+		prettyPrint(&message.Message)
 	}
+}
+
+// prettyPrint prints the contents of data with spaces for better distinction.
+func prettyPrint(data interface{}) {
+	var p []byte
+	p, err := json.MarshalIndent(data, "", "\t")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Printf("%s \n", p)
 }

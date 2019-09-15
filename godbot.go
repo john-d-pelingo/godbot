@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/bwmarrin/discordgo"
 	conf "github.com/john-d-pelingo/godbot/config"
@@ -25,5 +28,13 @@ func main() {
 
 	defer dgo.Close()
 
-	helpers.Run()
+	run()
+}
+
+// run makes a program run indefinitely until the user hits CTRL-C.
+func run() {
+	fmt.Println("Bot is now running. Press CTRL-C to exit.")
+	sc := make(chan os.Signal, 1)
+	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, syscall.SIGTERM)
+	<-sc
 }
