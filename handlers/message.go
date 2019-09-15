@@ -23,6 +23,12 @@ func HandleMessage(prefix string) func(discord *discordgo.Session, message *disc
 			commands.Ping(discord, message)
 		}
 
+		if content == fmt.Sprintf("%shelp", prefix) {
+			commands.Help(discord, message, &commands.HelpOptions{
+				Prefix: prefix,
+			})
+		}
+
 		helpers.PrettyPrint(&message.Message)
 	}
 }
