@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/john-d-pelingo/godbot/helpers"
+	"github.com/john-d-pelingo/sinartisi/color"
 )
 
 // HelpOptions represents the specific options passed to the Help function.
@@ -22,7 +22,7 @@ func Help(discord *discordgo.Session, message *discordgo.MessageCreate, options 
 
 	embed := &discordgo.MessageEmbed{
 		Author:      &discordgo.MessageEmbedAuthor{Name: "GodBot", URL: "https://github.com/john-d-pelingo/godbot"},
-		Color:       helpers.RandomRGBColorNumber(),
+		Color:       color.RandomRGBColorNumber(),
 		Timestamp:   time.Now().Format(time.RFC3339),
 		Title:       "Help",
 		Description: list,

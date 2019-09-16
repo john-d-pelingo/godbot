@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/john-d-pelingo/godbot/helpers"
+	"github.com/john-d-pelingo/sinartisi/color"
 )
 
 // Ping is in charge of the ping command and sends a corresponding message back.
@@ -19,7 +19,7 @@ func Ping(discord *discordgo.Session, message *discordgo.MessageCreate) {
 
 	embed := &discordgo.MessageEmbed{
 		Author:      &discordgo.MessageEmbedAuthor{Name: "GodBot", URL: "https://github.com/john-d-pelingo/godbot"},
-		Color:       helpers.RandomRGBColorNumber(),
+		Color:       color.RandomRGBColorNumber(),
 		Timestamp:   time.Now().Format(time.RFC3339),
 		Title:       "Pong!",
 		Description: fmt.Sprintf("Your ping: %v", time.Since(timestamp)),
