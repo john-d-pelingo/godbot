@@ -4,5 +4,9 @@ github.com/gorilla/websocket v1.4.0 h1:WDFjx/TMzVgy9VdMMQi2K2Emtwi2QcUQsztZ/zLaH
 github.com/gorilla/websocket v1.4.0/go.mod h1:E7qHFY5m1UJ88s3WnNqhKjPHQ0heANvMoAMk2YaljkQ=
 github.com/john-d-pelingo/sinartisi v0.0.1 h1:QT1fbEq3cNwgsIbaRGLwBBidIbhkxstpBJ2M+B64FCM=
 github.com/john-d-pelingo/sinartisi v0.0.1/go.mod h1:dMmBmPoyjW7/Bfr0d2Zursnhmb9+m3zcSuqRAJ6wBQQ=
+github.com/john-d-pelingo/sinartisi v0.0.2 h1:AO5UwtM7IX40FcbwTdIJvI4ePZzvoVqNCvkHnZwE/PM=
+github.com/john-d-pelingo/sinartisi v0.0.2/go.mod h1:dMmBmPoyjW7/Bfr0d2Zursnhmb9+m3zcSuqRAJ6wBQQ=
+github.com/john-d-pelingo/sinartisi v0.1.0 h1:tC/+unvPQCncXB7IolyAtgxNsplg2Mpz7jSKMjAPK8k=
+github.com/john-d-pelingo/sinartisi v0.1.0/go.mod h1:dMmBmPoyjW7/Bfr0d2Zursnhmb9+m3zcSuqRAJ6wBQQ=
 golang.org/x/crypto v0.0.0-20181030102418-4d3f4d9ffa16 h1:y6ce7gCWtnH+m3dCjzQ1PCuwl28DDIc3VNnvY29DlIA=
 golang.org/x/crypto v0.0.0-20181030102418-4d3f4d9ffa16/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
