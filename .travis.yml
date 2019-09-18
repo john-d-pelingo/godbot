@@ -1,0 +1,17 @@
+language: go
+
+go:
+  - 1.13.x
+  - master
+
+install:
+  - go get -v -t -d ./...
+  - go get -v golang.org/x/lint/golint
+  - go get -v github.com/golangci/golangci-lint/cmd/golangci-lint
+
+script:
+  - go vet -x ./...
+  - golint -set_exit_status ./...
+  - golangci-lint run --enable-all
+  - go test -v -race ./...
+  - go build
