@@ -14,7 +14,7 @@ type HelpOptions struct {
 }
 
 // Help is in charge of the help command and sends a list of available commands back.
-func Help(discord *discordgo.Session, message *discordgo.MessageCreate, options *HelpOptions) {
+func Help(discord *discordgo.Session, message *discordgo.MessageCreate, options HelpOptions) {
 	list := fmt.Sprintf(`Here is a list of commands below:
 		%shelp - this command
 		%sping - contact this bot

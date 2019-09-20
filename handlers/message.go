@@ -24,7 +24,7 @@ func HandleMessage(prefix string) func(discord *discordgo.Session, message *disc
 		}
 
 		if content == fmt.Sprintf("%shelp", prefix) {
-			commands.Help(discord, message, &commands.HelpOptions{
+			commands.Help(discord, message, commands.HelpOptions{
 				Prefix: prefix,
 			})
 		}
