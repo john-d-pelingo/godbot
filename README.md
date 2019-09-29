@@ -35,6 +35,6 @@ My simple [Discord](https://discordapp.com/) bot to get my
   https://goreportcard.com/badge/github.com/john-d-pelingo/godbot
 [shield-maintainability]:
   https://api.codeclimate.com/v1/badges/6cf45501fd8ea42ab103/maintainability
-[shield-mit]: https://img.shields.io/github/license/mashape/apistatus.svg
+[shield-mit]: https://img.shields.io/badge/License-MIT-lavender.svg
 [shield-travis]: https://travis-ci.org/john-d-pelingo/godbot.svg?branch=master
 [travis]: https://travis-ci.org/john-d-pelingo/godbot
