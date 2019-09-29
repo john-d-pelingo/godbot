@@ -8,3 +8,4 @@
   - `prettier`ing all markdown and other files.
 - TODO: add random number command
 - TODO: add set status
+- TODO: create an array of `func newCommand(name string,` commands @HandleMessage

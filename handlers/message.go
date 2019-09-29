@@ -19,7 +19,6 @@ func HandleMessage(prefix string) func(discord *discordgo.Session, message *disc
 
 		content := message.Content
 
-		// TODO: create an array of `func newCommand(name string,` commands
 		if content == fmt.Sprintf("%sping", prefix) {
 			commands.Ping(discord, message)
 		}
