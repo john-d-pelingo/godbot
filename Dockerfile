@@ -1,5 +1,5 @@
 # Use the golang@1.13.0 base image
-FROM golang:1.13.0-alpine3.10 AS base
+FROM golang:1.13.11-alpine3.10 AS base
 LABEL maintainer="John Darryl Pelingo <johndarrylpelingo@gmail.com> (https://github.com/john-d-pelingo)"
 
 FROM base AS linux-packages
