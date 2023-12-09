@@ -24,7 +24,7 @@ WORKDIR /app
 RUN go build -o main .
 
 # Lightweight scratch image to run the application within.
-FROM alpine:3.10 as production
+FROM alpine:3.19 as production
 WORKDIR /app
 COPY --from=build /app .
 # Start the executable command.
